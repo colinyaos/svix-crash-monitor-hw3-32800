@@ -80,9 +80,7 @@ def svix_squared(cdf):
     integral = np.trapezoid(put_grid[below], grid[below]) + np.trapezoid(call_grid[above], grid[above])
     mid_traps = left_trap + right_trap
 
-    print(left_grid, left_vals, right_grid, right_vals, integral, mid_traps)
-
-    return 2.0 / (tau * forward) * (integral + mid_traps)
+    return float(2.0 / (tau * forward) * (integral + mid_traps))
 
 
 def interpolate_variance(svix2_near, tau_near, svix2_far, tau_far, horizon_years=HORIZON_DAYS / 365.0):
